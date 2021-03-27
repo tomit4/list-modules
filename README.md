@@ -2,8 +2,8 @@ This is a second pass on my first coding project, the to-do-list.
 
 A simple terminal project, this updated version of a To Do List Application attempts to organize the original code somewhat
 and utilize CommonJS's module.exports and require functionalities.  I have divided up the code into three different
-modules, the read, write, and save javascript files each read from the last, starting with read, and the user is intended
-to run the save.js file as the final application.
+modules, the readlist, writelist, and savelist javascript files each read from the last, starting with readlist, and the user is intended
+to run the savelist.js file as the final application.
 
 I have also provided a samplelist.txt file should the user desire to import a premade To Do List.  When prompted for
 the imported file name, simple type 'samplelist' in the text field, no '.txt' is required.
