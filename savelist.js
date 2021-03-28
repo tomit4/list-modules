@@ -4,7 +4,7 @@ const fs = require('fs');//and we'll have to bring back our read/write functiona
 let finishedArrString = writeList.finishedArrString;//and assigning our variables from the writelist.js file to the same names..
 let finishedArr = writeList.finishedArr;
 
-const currentDate = new Date();//the following is the reformatting of the current time (which I'm encountering some strange bugginess depending on which computer I use...)
+const currentDate = new Date();//the following is the reformatting of the current time (which I'm encountering some strange bugginess depending on which computer I use... figured it out, needed to put -= in getTime function, must have deleted it by accident)
 //I could have put this functionality elsewhere in either the readlist.js or writelist.js files..but I simply didn't want to display the currentTime and the current hour's
 //list until the end of the program..so, yeah.
 let currentHour = currentDate.getHours();
@@ -13,7 +13,7 @@ let currentTime = getTime(currentHour);
 
 function getTime (now) {//displays the current time in American Standard time (not military time)
 	if (now > 12) {
-		now = 12;
+		now -= 12;
 		if (now < 1) {
 			now = '12';
 			}
@@ -50,7 +50,7 @@ console.log(finishedArrString);//displays the final list
 alertMe(finishedArr, currentTime);//and alerts the user if there's any tasks that need to be accomplished that hour
 console.log('The Current Time is: ' + currentTime);//and also tells the user the current time (buggy on different computers!..not sure why..)
 
-(function writeIt() {//finally, we ask the user of they'd like to save their file, if so, the .txt format is automatically applied to the end of whatever string value they provide.
+(function writeIt() {//finally, we ask the user if they'd like to save their file, if so, the .txt format is automatically applied to the end of whatever string value they provide.
 	let writePrompt = prompt('Would you like to save your list?: ');
 	if (writePrompt == 'y' || writePrompt == 'yes' || writePrompt == 'Yes') {
 		let fileName = prompt('What would you like to name your file?: ');
